@@ -5,7 +5,7 @@ Werkzeug==0.9.4
 argparse==1.2.1
 gunicorn==18.0
 itsdangerous==0.23
-logging
+logging==0.4.9.6
 pymarc==2.9.2
 worldcat==0.3.6
 wsgiref==0.1.2
