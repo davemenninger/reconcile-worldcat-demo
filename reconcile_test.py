@@ -14,5 +14,9 @@ class ReconcileTestCase(unittest.TestCase):
         rv = self.app.post('/reconcile', data=dict(query='earthsea'), follow_redirects=True)
         assert 'A wizard of earthsea' in rv.data
 
+    def test_control_number(self):
+        rv = self.app.post('/reconcile', data=dict(query='earthsea'), follow_redirects=True)
+        assert '1210' in rv.data
+
 if __name__ == '__main__':
     unittest.main()

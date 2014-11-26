@@ -39,12 +39,17 @@ def search(query):
     o = s.get_response()
 
     for r in pymarc_extract(o.data):
+        title = ''
+        control_num = 0
         for f in r.get_fields():
             if ( f.tag == '245' ):
                 title = f.format_field()
                 app.logger.info( title )
-                matches.append({ "id": 1, "name": json.dumps(title), "score": 100, "match": False, "type": [ {"id": "/entry/title", "name": "Entry Title"} ] })
-                print matches
+            if ( f.tag == '001' ):
+                control_num = f.format_field()
+                app.logger.info(control_num)
+
+        matches.append({ "id": json.dumps(control_num), "name": json.dumps(title), "score": 100, "match": False, "type": [ {"id": "/entry/title", "name": "Entry Title"} ] })
 
     return matches
 
