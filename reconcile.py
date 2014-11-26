@@ -11,6 +11,14 @@ from worldcat.util.extract import extract_elements, pymarc_extract
 
 from flask import Flask, request, jsonify, json
 app = Flask(__name__)
+app.debug = True
+
+import logging
+from logging import StreamHandler
+file_handler = StreamHandler()
+app.logger.setLevel(logging.DEBUG)  # set the desired logging level here
+app.logger.addHandler(file_handler)
+
 
 # Basic service metadata. There are a number of other documented options
 # but this is all we need for a simple service.
@@ -29,12 +37,12 @@ def search(query):
     wskey = os.environ['WSKEY']
     s = SRURequest(wskey=wskey, query='srw.ti = "' + query + '"', maximumRecords='3')
     o = s.get_response()
-    
+
     for r in pymarc_extract(o.data):
         for f in r.get_fields():
             if ( f.tag == '245' ):
                 title = f.format_field()
-                print title
+                app.logger.info( title )
                 matches.append({ "id": 1, "name": json.dumps(title), "score": 100, "match": False, "type": [ {"id": "/entry/title", "name": "Entry Title"} ] })
                 print matches
 
@@ -84,4 +92,4 @@ def reconcile():
     return jsonpify(metadata)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
