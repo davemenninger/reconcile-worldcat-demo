@@ -5,4 +5,5 @@ python:
 - pypy
 script: python reconcile_test.py
 env:
-  secure: l063Ahx1eOMyXeHzURghtZR7isUWGVx6s2xSaNYPNQ8Gl33wstFzNalNguBWQNIjGo9NfMLAbDg9chYtal4v4bPmuDbc9d1g4BKKzMupIE/tM4AO8D1Nxu/HN/6cBh6lYSQFW5h5ySNN0uk2Bjex9N2zIliBvxK02rSWJzr9dhk=
+  global:
+    secure: SJEQ30ExiK2aPuZsS3ErCitQX7MuKfhkPP4+7W0HgAMt5Oy2Mo4zLH7QDkp65pqDCPv8MeFCXwJYu1zqmLHksfL8hOrjtJOGMn5k30OfeFJLJji2E2NoZohJTQZqabe5Tgca2zC9CE+LiemEefOQywLWMXeEJ9N+h9R3BwaGYmA=
