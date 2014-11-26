@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/davemenninger/reconcile-worldcat-demo.svg?branch=master
+    :target: https://travis-ci.org/davemenninger/reconcile-worldcat-demo
+
 A demo Google Refine reconciliation service API.
 
 Does a title search using Worldcat Search API.
@@ -14,7 +17,7 @@ Here's how to make this work on heroku. ( https://devcenter.heroku.com/articles/
 
 * source venv/bin/active
 
-* [put your worldcat api key into a file called .env like WSKEY=yourapikey12345blah] 
+* [put your worldcat api key into a file called .env like WSKEY=yourapikey12345blah]
 
 * heroku create
 
